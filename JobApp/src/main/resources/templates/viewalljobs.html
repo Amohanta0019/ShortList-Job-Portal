@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>All Job Posts</title>
+
+    <!-- Bootstrap CSS -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" th:href="@{/style1.css}" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" th:href="@{/home}"> Job Portal </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/home}"> Home </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/viewalljobs}"> All Jobs </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="https://telusko.com/"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= JOB POSTS ================= -->
+
+    <div class="container mt-5">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!--
+                Equivalent to:
+
+                <c:forEach var="jobPost" items="${jobPosts}">
+            -->
+
+        <div class="col" th:each="jobPost : ${jobPosts}">
+          <div class="card border-dark bg-dark text-white h-100">
+            <div class="card-body">
+              <!-- Job Profile -->
+
+              <h5 class="card-title" th:text="${jobPost.postProfile}">
+                Job Profile
+              </h5>
+
+              <!-- Description -->
+
+              <p class="card-text">
+                <strong> Description: </strong>
+
+                <span th:text="${jobPost.postDesc}"> Job description </span>
+              </p>
+
+              <!-- Experience -->
+
+              <p class="card-text">
+                <strong> Experience Required: </strong>
+
+                <span th:text="${jobPost.reqExperience}"> 0 </span>
+
+                years
+              </p>
+
+              <!-- Tech Stack -->
+
+              <p class="card-text mb-1">
+                <strong> Tech Stack: </strong>
+              </p>
+
+              <ul>
+                <!--
+                                Equivalent to:
+
+                                <c:forEach
+                                    var="tech"
+                                    items="${jobPost.postTechStack}">
+                            -->
+
+                <li th:each="tech : ${jobPost.postTechStack}" th:text="${tech}">
+                  Java
+                </li>
+              </ul>
+            </div>
+
+            <div class="card-footer">
+              <!-- Optional footer content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

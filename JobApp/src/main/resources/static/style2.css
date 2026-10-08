@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+.navbar {
+  background-color: #1f2937;
+  color: white;
+  padding: 18px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 24px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-title h2 {
+  font-size: 32px;
+  color: #1f2937;
+}
+
+.page-title p {
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.job-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.job-card h3 {
+  color: #2563eb;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.job-info {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+.description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.experience {
+  display: inline-block;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tech {
+  background-color: #f3f4f6;
+  color: #374151;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.empty-message {
+  text-align: center;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  color: #6b7280;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .container {
+    width: 95%;
+    margin: 25px auto;
+  }
+
+  .page-title h2 {
+    font-size: 26px;
+  }
+}

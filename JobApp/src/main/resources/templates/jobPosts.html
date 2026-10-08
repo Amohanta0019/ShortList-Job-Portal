@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>All Job Posts</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Application CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" th:href="@{/style2.css}" />
+  </head>
+  <body>
+    <div class="page-title">
+      <h2>Available Job Posts</h2>
+      <p>Find your next opportunity</p>
+    </div>
+
+    <div class="job-grid" th:if="${jobPosts != null and !jobPosts.isEmpty()}">
+      <div class="job-card" th:each="job : ${jobPosts}">
+        <h3 th:text="${job.postProfile}">Job Profile</h3>
+
+        <div class="job-info">
+          <div class="label">Description</div>
+          <p th:text="${job.postDesc}">Job description</p>
+        </div>
+
+        <div class="job-info">
+          <div class="label">Required Experience</div>
+          <p>
+            <span th:text="${job.reqExperience}">0</span>
+            years
+          </p>
+        </div>
+
+        <div class="job-info">
+          <div class="label">Technology Stack</div>
+
+          <div class="tech-stack">
+            <span
+              class="tech"
+              th:each="tech : ${job.postTechStack}"
+              th:text="${tech}"
+            >
+              Java
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Displayed when there are no jobs -->
+    <div
+      class="empty-message"
+      th:if="${jobPosts == null or jobPosts.isEmpty()}"
+    >
+      <h3>No job posts available</h3>
+      <p>There are currently no job opportunities available.</p>
+    </div>
+  </body>
+</html>
