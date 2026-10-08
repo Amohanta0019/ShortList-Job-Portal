@@ -1,4 +1,4 @@
-# 🚀 Job Portal
+# 🚀 ShortList-Job Portal
 
 A modern full-stack **Job Portal** built with **React (Vite)** and **Spring Boot**. The application allows users to discover jobs, search and filter listings, create and manage job posts, and save interesting opportunities for later.
 
@@ -658,6 +658,6 @@ Free to use and modify for **learning and personal projects**.
 
 ## 👨‍💻 Project
 
-**Job Portal** — a full-stack application demonstrating how a React frontend can interact with a Spring Boot REST API and JPA-backed database.
+**ShortList-Job Portal** — a full-stack application demonstrating how a React frontend can interact with a Spring Boot REST API and JPA-backed database.
 
 Built for learning, experimentation, and portfolio development.
